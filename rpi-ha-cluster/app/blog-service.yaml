@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-service
+  labels:
+    app.kubernetes.io/name: blog-service
+    app.kubernetes.io/component: frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 1313
+  selector:
+    app.kubernetes.io/name: blog
+    app.kubernetes.io/component: frontend
